@@ -21,9 +21,12 @@ class BvlcModel:
         Initialize the bvlc model
         '''
         
-        model_def = '/home/centos/caffe/models/bvlc_reference_caffenet/deploy.prototxt'
-        model_weights = '/home/centos/caffe/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
-        mean_file = '/home/centos/caffe/python/caffe/imagenet/ilsvrc_2012_mean.npy'
+        #model_def = '/home/centos/caffe/models/bvlc_reference_caffenet/deploy.prototxt'
+        model_def = ConstantValue.CAFFE_ROOT.value + '/models/bvlc_reference_caffenet/deploy.prototxt'
+        #model_weights = '/home/centos/caffe/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
+        model_weights = ConstantValue.CAFFE_ROOT.value + '/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'
+        #mean_file = '/home/centos/caffe/python/caffe/imagenet/ilsvrc_2012_mean.npy'
+        mean_file = ConstantValue.CAFFE_ROOT.value + '/python/caffe/imagenet/ilsvrc_2012_mean.npy'
 
         self.net = caffe.Net(model_def,      # defines the structure of the model
                              model_weights,  # contains the trained weights
@@ -67,9 +70,12 @@ class AlexNetModel:
     '''
     
     def __init__(self):
-        model_def_alexnet = '/home/centos/caffe/models/bvlc_alexnet/deploy.prototxt'
-        model_weights_alexnet = '/home/centos/caffe/models/bvlc_alexnet/bvlc_alexnet.caffemodel'
-        mean_file = '/home/centos/caffe/python/caffe/imagenet/ilsvrc_2012_mean.npy'
+        #model_def_alexnet = '/home/centos/caffe/models/bvlc_alexnet/deploy.prototxt'
+        model_def_alexnet = ConstantValue.CAFFE_ROOT.value + '/models/bvlc_alexnet/deploy.prototxt'
+        #model_weights_alexnet = '/home/centos/caffe/models/bvlc_alexnet/bvlc_alexnet.caffemodel'
+        model_weights_alexnet = ConstantValue.CAFFE_ROOT.value + '/models/bvlc_alexnet/bvlc_alexnet.caffemodel'
+        #mean_file = '/home/centos/caffe/python/caffe/imagenet/ilsvrc_2012_mean.npy'
+        mean_file = ConstantValue.CAFFE_ROOT.value + '/python/caffe/imagenet/ilsvrc_2012_mean.npy'
         
         self.net_alexnet = caffe.Net(model_def_alexnet,      # defines the structure of the model
                                      model_weights_alexnet,  # contains the trained weights
